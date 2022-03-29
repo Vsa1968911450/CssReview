@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0.5边框</title>
+    <style>
+        /*  单边框 让边框一半变成透明色 */
+        /* .border{
+            width:200px;
+            height:200px;
+            background-color: red;
+            margin: 0 auto;
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(to bottom, transparent 50%,green 50%) 0 0  100% 0;
+        } */
+        .border{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 0 auto;
+            position: relative;
+        }
+        .border::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            border-bottom: 1px solid black;
+            background: blue;
+            transform: scaleY(0.5);
+        }
+        /* 多边框 */
+        .allborder{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 0 auto;
+            position: relative;
+        }
+        .allborder::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200%;
+            height: 200%;
+            background: blue;
+            border: 1px solid black;
+            /* 默认缩放是以中心为原点 */
+            transform-origin:0 0 ;
+            transform: scale(0.5); 
+        }
+    </style>
+</head>
+<body>
+    <!-- <div  class="border"></div> -->
+    <div class="allborder"></div>
+</body>
+</html>
